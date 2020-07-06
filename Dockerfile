@@ -9,5 +9,7 @@ RUN npm run build
 
 # Run Stage
 FROM nginx
+# Elastic Beanstalk looks for Expose instruction and maps automatically
+EXPOSE 80
 COPY --from=buildStage /app/build /usr/share/nginx/html
 ## nginx automatically starts up
