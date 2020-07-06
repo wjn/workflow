@@ -6,7 +6,5 @@ services:
 before_install:
 	- docker build -t wjn1/workflow -f Dockerfile.dev .
 
-# All commands that need to be run after build
-# any status codes other than 0, will be interpreted by Travis as a failure
 script:
 	- docker run -e CI=true wjn1/workflow npm test
