@@ -1,4 +1,4 @@
-![Travis Build Status](https://travis-ci.org/wjn/workflow.svg?branch=master)
+[![Build Status](https://travis-ci.org/wjn/workflow.svg?branch=master)](https://travis-ci.org/wjn/workflow)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
