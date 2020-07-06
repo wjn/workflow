@@ -10,3 +10,22 @@ before_install:
 
 script:
   - docker run -e CI=true wjn1/workflow npm run test
+
+deploy:
+  # AWS Service
+  provider: elasticbeanstalk
+  # AWS Region
+  region: 'us-east-1'
+  # Elastic Beanstalk app name
+  app: 'workflow-experiment'
+  # Elastic Beanstalk env for the app
+  env: 'WorkflowExperiment-env'
+  # S3 Bucket
+  bucket_name: 'elasticbeanstalk-us-east-1-858111074093'
+  # exact name of Elastic Beanstalk App Name
+  bucket_path: 'workflow-experiment'
+  # only deploy when master is updated
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
