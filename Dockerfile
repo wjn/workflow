@@ -1,5 +1,5 @@
 # Build Stage
-FROM node:alpine as buildStage
+FROM node:alpine
 WORKDIR '/app'
 COPY package.json .
 RUN npm install
@@ -11,5 +11,5 @@ RUN npm run build
 FROM nginx
 # Elastic Beanstalk looks for Expose instruction and maps automatically
 EXPOSE 80
-COPY --from=buildStage /app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/share/nginx/html
 ## nginx automatically starts up
